@@ -3,36 +3,21 @@
  */
 public class Passenger {
 
-    private String startingStation;
-    private String endingStation;
+    private Integer startingStation;
+    private Integer endingStation;
 
-    public Passenger(){
-        startingStation ="1";
-        endingStation ="2";
-    }
-
-    public Passenger(String newStart, String newEnd)
+    public Passenger(Integer startingStation, Integer endingStation)
     {
-        startingStation = newStart;
-        endingStation = newEnd;
+        this.startingStation = startingStation;
+        this.endingStation = endingStation;
     }
 
-    public void setStartingStation(String newStart)
-    {
-        startingStation = newStart;
-    }
-
-    public void setEndingStation(String newEnd)
-    {
-        endingStation = newEnd;
-    }
-
-    public String getStartingStation()
+    public Integer getStartingStation()
     {
         return startingStation;
     }
 
-    public String getEndingStation()
+    public Integer getEndingStation()
     {
         return endingStation;
     }

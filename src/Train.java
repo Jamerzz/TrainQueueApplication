@@ -3,21 +3,15 @@
  */
 public class Train {
 
-    private Object trainRoute;
-    private String currentStation;
-    private String nextStation;
+    private TrainRoute route;
+    private Integer currentStation;
+    private Integer nextStation;
     Passenger[] passengerArray = new Passenger[50];
 
-    public Train()
+    public Train(TrainRoute route)
     {
-        trainRoute = 1;
-        currentStation = "0";
-    }
-
-    public Train(Object newRoute)
-    {
-        trainRoute = newRoute;
-        currentStation = "0";
+        this.route = route;
+        currentStation = 0;
     }
 
     public void addPassenger(Passenger newPassenger)
@@ -32,7 +26,7 @@ public class Train {
     {
         if (currentPassenger.getEndingStation() == currentStation)
         {
-
+            //will add stuff for this
         }
     }
 

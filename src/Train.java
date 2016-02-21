@@ -6,12 +6,21 @@ public class Train {
     private TrainRoute route;
     private Integer currentStation;
     private Integer nextStation;
+
     Passenger[] passengerArray = new Passenger[50];
 
     public Train(TrainRoute route)
     {
         this.route = route;
         currentStation = 0;
+    }
+
+    public Integer getCurrentStation() {
+        return currentStation;
+    }
+
+    public void setCurrentStation(Integer currentStation) {
+        this.currentStation = currentStation;
     }
 
     public void addPassenger(Passenger newPassenger)
@@ -34,4 +43,6 @@ public class Train {
     {
         return passengerArray.length;
     }
+
+
 }

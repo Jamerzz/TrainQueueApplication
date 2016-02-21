@@ -5,6 +5,7 @@ public class Passenger {
 
     private Integer startingStation;
     private Integer endingStation;
+    public String name;
 
     public Passenger(Integer startingStation, Integer endingStation)
     {

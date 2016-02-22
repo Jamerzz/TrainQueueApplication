@@ -5,14 +5,15 @@ public class TrainRoute {
 
     private Station[] route;
 
-    public TrainRoute(Integer numberOfStations, Station[] route) {
-        this.route = route;
-        for (int i = 0; i < numberOfStations; i++) {
-            route[i] = new Station(i+1);
-        }
+    public TrainRoute(Integer numberOfStations) {
+        //default constructor
     }
 
     public Station[] getRoute() {
         return this.route;
+    }
+
+    public void setRoute(Station[] route) {
+        this.route = route;
     }
 }

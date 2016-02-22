@@ -7,10 +7,8 @@ public class Passenger {
     private Integer endingStation;
     public String name;
 
-    public Passenger(Integer startingStation, Integer endingStation)
-    {
-        this.startingStation = startingStation;
-        this.endingStation = endingStation;
+    public Passenger() {
+        //default constructor
     }
 
     public Integer getStartingStation()
@@ -21,5 +19,13 @@ public class Passenger {
     public Integer getEndingStation()
     {
         return endingStation;
+    }
+
+    public void setEndingStation(Integer endingStation) {
+        this.endingStation = endingStation;
+    }
+
+    public void setStartingStation(Integer startingStation) {
+        this.startingStation = startingStation;
     }
 }

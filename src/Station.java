@@ -1,5 +1,5 @@
 /**
- * Created by Guri on 2/17/16.
+ * Group 13
  */
 public class Station {
 
@@ -7,7 +7,12 @@ public class Station {
     private Integer stationNumber;
 
     public Station(Integer stationNumber) {
-        //default constructor
+        this.stationNumber = stationNumber;
+    }
+
+    public Station(QueueOfPassengers passengers, Integer stationNumber) {
+        this.passengers = passengers;
+        this.stationNumber = stationNumber;
     }
 
     public QueueOfPassengers getQueueOfPassengers() {

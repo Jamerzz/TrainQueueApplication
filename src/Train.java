@@ -17,6 +17,15 @@ public class Train {
         capacity = passengerArray.length;
     }
 
+    public Train(TrainRoute route)
+    {
+        this.currentStation = route.getRouteList().get(0);
+        this.nextStation = route.getRouteList().get(1);
+        this.capacity = passengerArray.length;
+        this.route = route;
+
+    }
+
     // get/set current station methods
     public Integer getCurrentStation() {
         return currentStation;
@@ -31,41 +40,43 @@ public class Train {
         return nextStation;
     }
 
-    public void setNextStation(Integer nextStation) {
+    public void setNextStation(int nextStation) {
         this.nextStation = nextStation;
     }
 
     // get/set route
-    public TrainRoute getRoute() {
+    public TrainRoute getTrainRoute() {
         return route;
     }
 
-    public void setRoute(TrainRoute route) {
+    public void setTrainRoute(TrainRoute route) {
         this.route = route;
     }
 
     public void addPassenger(Passenger newPassenger)
     {
-        if (newPassenger.getStartingStation() == currentStation)
+        if (capacity > 0)
         {
-            passengerArray[capacity] = newPassenger;
+            passengerArray[capacity - 1] = newPassenger;
             capacity--;
         }
     }
 
-    public void removePassenger(Passenger currentPassenger)
+    public void removePassenger(int passenger)
     {
-        for (int i = 0; i < passengerArray.length; i++) {
-            if (passengerArray[i].equals(currentPassenger)) {
-                passengerArray[i]  = null;
-                capacity++;
-            }
-        }
+        passengerArray[passenger] = null;
+        capacity++;
     }
 
     public Integer numberOfPassengers()
     {
-        return passengerArray.length;
+        int counter = 0;
+        for (int i = 0; i < passengerArray.length - 1; i++) {
+            if (passengerArray[i] != null) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
 

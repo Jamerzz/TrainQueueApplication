@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Author: James Salvatore
  *
@@ -15,12 +17,18 @@ public class QueueOfPassengers {
      * be used by a Station.
      * @param passengers Collection of Passenger Objects for initial queue.
      */
-    public QueueOfPassengers(Passenger[] passengers) {
+    public QueueOfPassengers(ArrayList<Passenger> passengers) {
         queue = new ArrayQueue(); //queue to contain passengers at station
         for (Passenger p : passengers) {
             // add each of the passengers to initial queue
             queue.enqueue(p);
         }
     }
+
+    public ArrayQueue getArrayQueue() {
+        return queue;
+    }
+
+
 
 }

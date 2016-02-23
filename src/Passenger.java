@@ -5,10 +5,10 @@ public class Passenger {
 
     private Integer startingStation;
     private Integer endingStation;
-    public String name;
 
-    public Passenger() {
-        //default constructor
+    public Passenger(int startingStation, int endingStation) {
+        this.startingStation = startingStation;
+        this.endingStation= endingStation;
     }
 
     public Integer getStartingStation()

@@ -1,19 +1,23 @@
+import java.sql.Array;
+import java.util.ArrayList;
+
 /**
  * Group 13
  */
 public class TrainRoute {
 
-    private Station[] route;
+    private ArrayList<Integer> route;
 
-    public TrainRoute(Integer numberOfStations) {
-        //default constructor
+    public TrainRoute(ArrayList<Integer> route) {
+        this.route = route;
     }
 
-    public Station[] getRoute() {
+    public ArrayList<Integer> getRouteList() {
         return this.route;
     }
 
-    public void setRoute(Station[] route) {
+    public void setRouteList(ArrayList<Integer> route) {
         this.route = route;
     }
+
 }

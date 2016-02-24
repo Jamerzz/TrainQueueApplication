@@ -1,15 +1,17 @@
 import java.util.ArrayList;
 
 /**
- * Author: James Salvatore
+ * Author(s): Group 13
+ * Assignment: Lab 3 - TrainQueue Application
  *
- * Class QueueOfPassengers creates an ArrayQueue of Passenger
+ * Description: Class QueueOfPassengers creates an ArrayQueue of Passenger
  * objects to be used by each Station object for the
  * Train Simulation Application
  */
 public class QueueOfPassengers {
 
     private ArrayQueue queue; //ArrayQueue for queue of Passenger Objects.
+
 
     /**
      * Default constructor for QueueOfPassengers Object. Fills the
@@ -25,6 +27,10 @@ public class QueueOfPassengers {
         }
     }
 
+    /**
+     * Getter method for the queue of passengers.
+     * @return Queue containing each of the passenger objects.
+     */
     public ArrayQueue getArrayQueue() {
         return queue;
     }

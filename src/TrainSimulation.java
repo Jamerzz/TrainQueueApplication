@@ -1,25 +1,43 @@
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 
 /**
- * Group 13
+ * Author(s): Group 13
+ * Assignment: Lab 3 - TrainQueue Application
+ *
+ * Description: Program that simulates trains
+ * picking and up and leaving passengers at stations
+ * using a circuluar queue structure and nature. 
  */
 public class TrainSimulation {
 
     private static ArrayList<Station> stations = new ArrayList<>();
     private static ArrayList<Train> trains;
+    private static ArrayList<Integer> trainStations = new ArrayList<Integer>() {{
+        add(1);
+        add(2);
+        add(3);
+        add(4);
+        add(5);
+    }};
     private static int runCounter = 1;
 
     public static void main(String[] args) {
-        //Test Case 1:
+
         initializeSimulation();
         runSimulation();
         runSimulation();
         runSimulation();
         runSimulation();
+        runSimulation();
+        runSimulation();
+        runSimulation();
+        runSimulation();
+        runSimulation();
+        runSimulation();
+        runSimulation();
+        runSimulation();
+        runSimulation();
+
     }
 
     public static void initializeSimulation() {
@@ -35,7 +53,7 @@ public class TrainSimulation {
         }
 
         //Initialize all passengers and enqueue to starting stations
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 100; i++) {
             int startingStation = new Random().nextInt(trainStations.length - 1 + 1) + 1;
             int endingStation = new Random().nextInt(trainStations.length - 1 + 1) + 1;
             Passenger passenger = new Passenger(startingStation, endingStation);
@@ -74,30 +92,33 @@ public class TrainSimulation {
         int trainCounter = 0;
         for (Train train: trains) {
 
+            int passengersRemoved = 0;
+            for (int i = 0; i < train.passengerArray.length; i++) {
+                if (train.passengerArray[i] != null && train.passengerArray[i].getEndingStation().equals(train.getCurrentStation())) {
+                    train.removePassenger(i);
+                    passengersRemoved++;
+                }
+            }
+
             QueueOfPassengers departingPassengers = stations.get(train.getCurrentStation() - 1).getQueueOfPassengers();
             int passengersBoarded = 0;
             for (int i = 0; i < departingPassengers.getArrayQueue().getNumberOfEntries(); i++) {
-                Passenger currentPassenger = (Passenger) departingPassengers.getArrayQueue().getFront();
-                if (train.getTrainRoute().getRouteList().contains(currentPassenger.getEndingStation())) {
+                while (train.getRemainingSeats() != 0 && !departingPassengers.getArrayQueue().isEmpty()) {
                     train.addPassenger((Passenger) departingPassengers.getArrayQueue().dequeue());
                     passengersBoarded++;
                 }
-            }
+        }
 
-            int passengersRemoved = 0;
-            int counter = train.passengerArray.length - 1;
-            while (train.passengerArray[counter] != null) {
-                if (train.passengerArray[counter].getEndingStation().equals(train.getCurrentStation())) {
-                    train.removePassenger(counter);
-                    passengersRemoved++;
-                }
-                counter--;
-            }
+        System.out.println("Train " + (trainCounter + 1) + " is docked at Station: " + trains.get(trainCounter).getCurrentStation() + "  | Passengers Aboard: " + trains.get(trainCounter).numberOfPassengers() + " | Passengers Removed: " + passengersRemoved + " | Passengers Boarded: " + passengersBoarded);
 
-            System.out.println("Train " + (trainCounter + 1) + " is docked at Station: " + trains.get(trainCounter).getCurrentStation() + "  | Passengers Aboard: " + trains.get(trainCounter).numberOfPassengers() + " | Passengers Removed: " + passengersRemoved + " | Passengers Boarded: " + passengersBoarded);
-            int nextStationIndex = train.getTrainRoute().getRouteList().indexOf(train.getCurrentStation());
-            train.setCurrentStation(train.getNextStation());
-            train.setNextStation(nextStationIndex + 1);
+        if (!train.getCurrentStation().equals(5)) {
+            train.setCurrentStation(train.getCurrentStation() + 1);
+                train.setNextStation(train.getCurrentStation() + 1);
+            }
+            else {
+                train.setCurrentStation(1);
+                train.setNextStation(2);
+            }
             trainCounter++;
 
         }

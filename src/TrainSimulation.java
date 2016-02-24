@@ -53,7 +53,7 @@ public class TrainSimulation {
         }
 
         //Initialize all passengers and enqueue to starting stations
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 200; i++) {
             int startingStation = new Random().nextInt(trainStations.length - 1 + 1) + 1;
             int endingStation = new Random().nextInt(trainStations.length - 1 + 1) + 1;
             Passenger passenger = new Passenger(startingStation, endingStation);
@@ -102,12 +102,10 @@ public class TrainSimulation {
 
             QueueOfPassengers departingPassengers = stations.get(train.getCurrentStation() - 1).getQueueOfPassengers();
             int passengersBoarded = 0;
-            for (int i = 0; i < departingPassengers.getArrayQueue().getNumberOfEntries(); i++) {
-                while (train.getRemainingSeats() != 0 && !departingPassengers.getArrayQueue().isEmpty()) {
+            while (train.getRemainingSeats() != 0 && !departingPassengers.getArrayQueue().isEmpty()) {
                     train.addPassenger((Passenger) departingPassengers.getArrayQueue().dequeue());
                     passengersBoarded++;
-                }
-        }
+             }
 
         System.out.println("Train " + (trainCounter + 1) + " is docked at Station: " + trains.get(trainCounter).getCurrentStation() + "  | Passengers Aboard: " + trains.get(trainCounter).numberOfPassengers() + " | Passengers Removed: " + passengersRemoved + " | Passengers Boarded: " + passengersBoarded);
 

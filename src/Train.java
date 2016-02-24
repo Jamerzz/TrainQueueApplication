@@ -124,13 +124,7 @@ public class Train {
      */
     public Integer numberOfPassengers()
     {
-        int counter = 0;
-        for (int i = 0; i < passengerArray.length; i++) {
-            if (passengerArray[i] != null) {
-                counter++;
-            }
-        }
-        return counter;
+        return 20 - remainingSeats;
     }
 
 

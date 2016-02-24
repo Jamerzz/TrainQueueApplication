@@ -6,7 +6,7 @@ import java.util.*;
  *
  * Description: Program that simulates trains
  * picking and up and leaving passengers at stations
- * using a circuluar queue structure and nature. 
+ * using a circular queue structure and nature.
  */
 public class TrainSimulation {
 
@@ -20,10 +20,13 @@ public class TrainSimulation {
         add(5);
     }};
     private static int runCounter = 1;
+    private static final Integer generatedPassengers = 250;
 
     public static void main(String[] args) {
 
         initializeSimulation();
+        runSimulation();
+        runSimulation();
         runSimulation();
         runSimulation();
         runSimulation();
@@ -53,7 +56,7 @@ public class TrainSimulation {
         }
 
         //Initialize all passengers and enqueue to starting stations
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < generatedPassengers; i++) {
             int startingStation = new Random().nextInt(trainStations.length - 1 + 1) + 1;
             int endingStation = new Random().nextInt(trainStations.length - 1 + 1) + 1;
             Passenger passenger = new Passenger(startingStation, endingStation);

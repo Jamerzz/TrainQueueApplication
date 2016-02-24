@@ -16,7 +16,9 @@ public class Train {
 
     private Integer remainingSeats; //Number of seats left for passengers trying to get on train
 
-    Passenger[] passengerArray = new Passenger[20]; //Containment of passenger objects on the train with capacity (20)
+    private final Integer capacity = 20; //Maximum capacity of trains
+
+    Passenger[] passengerArray = new Passenger[capacity]; //Containment of passenger objects on the train with capacity
 
     public Train() {
         //default constructor
@@ -86,8 +88,13 @@ public class Train {
     {
         if (remainingSeats > 0) //make sure there is space on the train for the passenger
         {
-            passengerArray[remainingSeats - 1] = newPassenger;
-            remainingSeats--;
+            for (int i = passengerArray.length - 1; i >= 0; i--) {
+                if (passengerArray[i] == null) {
+                    passengerArray[i] = newPassenger;
+                    remainingSeats--;
+                    break;
+                }
+            }
         }
     }
 
@@ -124,7 +131,13 @@ public class Train {
      */
     public Integer numberOfPassengers()
     {
-        return 20 - remainingSeats;
+        int passengerCounter = 0;
+        for (int i = 0; i < capacity; i++) {
+            if (passengerArray[i] != null) {
+                passengerCounter += 1;
+            }
+        }
+        return passengerCounter;
     }
 
 

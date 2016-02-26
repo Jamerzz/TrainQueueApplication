@@ -1,0 +1,1 @@
+Train simulaiton application created for WIT Data Structures Class - Lab 3. This simluation allows passengers to board and exit trains at various stations using Queues. The purpose of this Lab was to implement the Queue ADT using a Circular Array and apply it to a real-world scenario.

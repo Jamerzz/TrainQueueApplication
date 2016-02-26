@@ -1,18 +1,33 @@
+import java.sql.Array;
+import java.util.ArrayList;
+
 /**
- * Group 13
+ * Author(s): Group 13
+ * Assignment: Lab 3 - TrainQueue Application
+ *
+ * Description: TrainRoute class holds the route
+ * for a given train, comprised of integers that
+ * correspond to specific stations.
  */
 public class TrainRoute {
 
-    private Station[] route;
+    private ArrayList<Integer> route; //Trains actual route of stations to stop at
 
-    public TrainRoute(Integer numberOfStations, Station[] route) {
+    /**
+     * Constructor for the TrainRoute object.
+     * Actual route is set in the constructor.
+     * @param route
+     */
+    public TrainRoute(ArrayList<Integer> route) {
         this.route = route;
-        for (int i = 0; i < numberOfStations; i++) {
-            route[i] = new Station(i+1);
-        }
     }
 
-    public Station[] getRoute() {
+    /**
+     * Getter method for the TrainRoute's route
+     * @return The route ArrayList of integers (stations)
+     */
+    public ArrayList<Integer> getRouteList() {
         return this.route;
     }
+
 }

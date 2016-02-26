@@ -1,9 +1,10 @@
 import java.util.Arrays;
 
 /**
- * Author: James Salvatore
+ * Author(s): Group 13
+ * Assignment: Lab 3 - TrainQueue Application
  *
- * ArrayQueue Class is an ADT for a Queue, implemented
+ * Description: ArrayQueue Class is an ADT for a Queue, implemented
  * using a Circular Array. QueueInterface is implemented in
  * order to provide core methods of a Queue for the ADT.
  */

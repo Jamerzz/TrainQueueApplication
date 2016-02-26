@@ -1,7 +1,9 @@
 /**
- * Author: James Salvatore
- * Class QueueTestSuite demonstrates functionality for each
- * of the methods from the ArrayQueue class.
+ * Author(s): Group 13
+ * Assignment: Lab 3 - TrainQueue Application
+ *
+ * Description: Class QueueTestSuite demonstrates
+ * functionality for each of the methods from the ArrayQueue class.
  */
 public class QueueTestSuite {
 
@@ -11,7 +13,7 @@ public class QueueTestSuite {
      */
     public static void main(String[] args) {
         //test1();//works
-        //test2();//work
+        //test2();//works
     }
 
     /**
